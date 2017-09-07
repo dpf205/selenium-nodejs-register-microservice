@@ -7,8 +7,8 @@ driver.manage().window().maximize();
 driver.manage().deleteAllCookies();
 
 // custom functions
-function findIOLearnLink(){
-	return driver.findElements(webdriver.By.css('[href="http://www.iolearn.com/"]')).then(function(result){ // Error: ECONNREFUSED connect ECONNREFUSED 127.0.0.1:52044
+function findIOLearnLink(){ // Error: ECONNREFUSED connect ECONNREFUSED 127.0.0.1:57217
+	return driver.findElements(webdriver.By.css('[href="http://www.iolearn.com/"]')).then(function(result){ 
 		return result[0];
 	})
 }
