@@ -1,20 +1,29 @@
 var webdriver = require('selenium-webdriver');
+require('geckodriver');
+require('chromedriver');
+
 var By =  webdriver.By;
 var until = webdriver.unitl;
-var website = "http://iolearn.com";
 
-var driver = new webdriver.Builder().forBrowser('chrome').build();
+var fs = require('fs');
+var website = "http://www.way2automation.com/demo.html"; // or http://www.techbeamers.com/websites-to-practice-selenium-webdriver-online/
 
-driver.manage().maximize();
-driver.manage().deleteAllCookies();
+var driver = new webdriver.Builder().forBrowser('firefox').build();
 
-// navigate to ioLearn.com
+// navigate to site
 driver.get(website).then(function(){
-	console.log('Website request successfull');
-	driver.quit();
+	console.log('\n website request successful');
 });
 
+driver.manage().window().maximize();
+driver.manage().deleteAllCookies();
+
 // take screenshot
-// driver.takeScreenshot().then(fuction(data){
-//
-// })
+driver.takeScreenshot().then(function(data){
+	fs.writeFileSync('screenshot.png', data, 'base64');
+	console.log('\n screenshot taken of', website);
+});
+
+driver.quit().then(function(){
+	console.log('\n driver.quit()')
+});
