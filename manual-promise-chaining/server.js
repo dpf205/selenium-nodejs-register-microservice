@@ -1,15 +1,18 @@
 var webdriver = require("selenium-webdriver");
+require('geckodriver');
+require('chromedriver');
+
 var By = require('selenium-webdriver').By;
-var  until =  require("selenium-webdriver").until;
+var until =  require("selenium-webdriver").until;
 
 //  open  firefox
 var driver = new webdriver.Builder().forBrowser('firefox').build();
-//
-// // maximize window
-// driver.manage().window().maximize();
-//
-// // delete all cookies
-// driver.manage().deleteAllCookies();
+
+// maximize window
+driver.manage().window().maximize();
+
+// delete all cookies
+driver.manage().deleteAllCookies();
 
 driver.get("https://www.google.com/").then(function(){
 	console.log("\n 1) Entered google query input...");
@@ -31,5 +34,5 @@ driver.get("https://www.google.com/").then(function(){
 	console.log("\n 6) The page title is " + title);
 	return driver.quit();
 }).then(function(){
-	console.log("\n 7) Exiting test \n");
+	console.log("\n 7) driver.quit() \n");
 })

@@ -1,14 +1,18 @@
 var webdriver =  require('selenium-webdriver');
+require('geckodriver');
+require('chromedriver');
 var By = webdriver.By;
 var until = webdriver.until;
 
+
 var driver =  new webdriver.Builder().forBrowser('firefox').build();
+
 driver.manage().window().maximize();
 driver.manage().deleteAllCookies();
 
 // custom functions
 function findIOLearnLink(){ // Error: ECONNREFUSED connect ECONNREFUSED 127.0.0.1:57217
-	return driver.findElements(webdriver.By.css('[href="http://www.iolearn.com/"]')).then(function(result){ 
+	return driver.findElements(webdriver.By.css('[href="http://www.iolearn.com/"]')).then(function(result){
 		return result[0];
 	})
 }

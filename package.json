@@ -10,6 +10,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "chromedriver": "^2.32.1",
+        "geckodriver": "^1.8.1",
         "selenium-webdriver": "^3.5.0"
     }
 }

@@ -77,3 +77,5 @@ driver.findElement(By.id('createAccountBtn')).click().then(function(){
 })
 
 driver.sleep(15000);
+
+driver.quit();

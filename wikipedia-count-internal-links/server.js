@@ -1,4 +1,6 @@
 var webdriver = require('selenium-webdriver');
+require('geckodriver');
+require('chromedriver');
 var By = webdriver.By;
 var until = webdriver.until;
 
